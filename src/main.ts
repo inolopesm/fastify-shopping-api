@@ -1,9 +1,13 @@
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import dotenv from "dotenv";
 import env from "env-var";
 import Fastify from "fastify";
+import fastifyAutoLoad from "@fastify/autoload";
 import fastifyMongo from "@fastify/mongodb";
-import { accountPlugin } from "./modules/account/account.plugin.js";
-import { productPlugin } from "./modules/product/product.plugin.js";
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 dotenv.config();
 
@@ -14,7 +18,6 @@ const fastify = Fastify({ logger: true });
 
 fastify.register(fastifyMongo, { url: MONGO_URL });
 
-fastify.register(accountPlugin);
-fastify.register(productPlugin);
+fastify.register(fastifyAutoLoad, { dir: join(__dirname, "modules") });
 
 fastify.listen({ port: PORT });
