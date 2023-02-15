@@ -6,8 +6,8 @@ import Fastify from "fastify";
 import fastifyAutoLoad from "@fastify/autoload";
 import fastifyMongo from "@fastify/mongodb";
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 dotenv.config();
 
