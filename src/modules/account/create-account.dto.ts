@@ -7,5 +7,5 @@ export type CreateAccountDto = {
 export const createAccountDto: JSONSchemaType<CreateAccountDto> = {
   type: "object",
   properties: { username: { type: "string" } },
-  required: ["username"]
+  required: ["username"],
 };

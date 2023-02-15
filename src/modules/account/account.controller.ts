@@ -26,11 +26,11 @@ export const accountController = {
         message: "Username already in use",
       });
 
-      return
+      return;
     }
 
     await collection?.insertOne(request.body);
 
-    await reply.status(200).send(null)
+    await reply.status(200).send(null);
   },
 };
