@@ -1,4 +1,4 @@
-import type { JSONSchemaType } from "ajv";
+import { JSONSchemaType } from "ajv";
 
 export type CreateAccountDto = {
   username: string;
